@@ -1,0 +1,1816 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IFAB Football Rules Quiz</title>
+    <style>
+:root {
+  --grass: #0f6b3a;
+  --grass-dark: #083923;
+  --pitch-line: rgba(255, 255, 255, 0.72);
+  --ink: #122019;
+  --paper: #f8fbf7;
+  --muted: #5d6b62;
+  --border: #d5ded7;
+  --gold: #f1b93d;
+  --red: #d9534f;
+  --blue: #2d6cdf;
+  --shadow: 0 18px 46px rgba(7, 35, 22, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background:
+    linear-gradient(120deg, rgba(8, 57, 35, 0.94), rgba(15, 107, 58, 0.86)),
+    url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDEwMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3Jhc3MiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMTY4MzRiIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzBhNGEyYiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJtb3ciIHdpZHRoPSIyMjAiIGhlaWdodD0iMjIwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoMCkiPgogICAgICA8cmVjdCB3aWR0aD0iMTEwIiBoZWlnaHQ9IjIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPgogICAgICA8cmVjdCB4PSIxMTAiIHdpZHRoPSIxMTAiIGhlaWdodD0iMjIwIiBmaWxsPSJyZ2JhKDAsMCwwLDAuMDQpIi8+CiAgICA8L3BhdHRlcm4+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjEwMDAiIGZpbGw9InVybCgjZ3Jhc3MpIi8+CiAgPHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iMTAwMCIgZmlsbD0idXJsKCNtb3cpIi8+CiAgPHJlY3QgeD0iOTAiIHk9IjkwIiB3aWR0aD0iMTQyMCIgaGVpZ2h0PSI4MjAiIHJ4PSIxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNikiIHN0cm9rZS13aWR0aD0iMTAiLz4KICA8bGluZSB4MT0iODAwIiB5MT0iOTAiIHgyPSI4MDAiIHkyPSI5MTAiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjQ4KSIgc3Ryb2tlLXdpZHRoPSI4Ii8+CiAgPGNpcmNsZSBjeD0iODAwIiBjeT0iNTAwIiByPSIxNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjQ4KSIgc3Ryb2tlLXdpZHRoPSI4Ii8+CiAgPGNpcmNsZSBjeD0iODAwIiBjeT0iNTAwIiByPSIxMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjYyKSIvPgogIDxyZWN0IHg9IjkwIiB5PSIyODAiIHdpZHRoPSIyMzAiIGhlaWdodD0iNDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgc3Ryb2tlLXdpZHRoPSI4Ii8+CiAgPHJlY3QgeD0iMTI4MCIgeT0iMjgwIiB3aWR0aD0iMjMwIiBoZWlnaHQ9IjQ0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiIHN0cm9rZS13aWR0aD0iOCIvPgogIDxyZWN0IHg9IjkwIiB5PSIzOTAiIHdpZHRoPSI5NSIgaGVpZ2h0PSIyMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIiBzdHJva2Utd2lkdGg9IjgiLz4KICA8cmVjdCB4PSIxNDE1IiB5PSIzOTAiIHdpZHRoPSI5NSIgaGVpZ2h0PSIyMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIiBzdHJva2Utd2lkdGg9IjgiLz4KICA8Y2lyY2xlIGN4PSIyNjAiIGN5PSI1MDAiIHI9IjciIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC42NSkiLz4KICA8Y2lyY2xlIGN4PSIxMzQwIiBjeT0iNTAwIiByPSI3IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNjUpIi8+CiAgPHBhdGggZD0iTTMyMCA0MTBhMTUwIDE1MCAwIDAgMSAwIDE4MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMzgpIiBzdHJva2Utd2lkdGg9IjgiLz4KICA8cGF0aCBkPSJNMTI4MCA0MTBhMTUwIDE1MCAwIDAgMCAwIDE4MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMzgpIiBzdHJva2Utd2lkdGg9IjgiLz4KICA8Y2lyY2xlIGN4PSI5MCIgY3k9IjkwIiByPSIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMzQpIiBzdHJva2Utd2lkdGg9IjciLz4KICA8Y2lyY2xlIGN4PSIxNTEwIiBjeT0iOTAiIHI9IjM0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zNCkiIHN0cm9rZS13aWR0aD0iNyIvPgogIDxjaXJjbGUgY3g9IjkwIiBjeT0iOTEwIiByPSIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMzQpIiBzdHJva2Utd2lkdGg9IjciLz4KICA8Y2lyY2xlIGN4PSIxNTEwIiBjeT0iOTEwIiByPSIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMzQpIiBzdHJva2Utd2lkdGg9IjciLz4KPC9zdmc+Cg==");
+  background-size: cover;
+  background-position: center;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  width: min(1180px, calc(100% - 32px));
+  min-height: calc(100vh - 32px);
+  margin: 16px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: rgba(248, 251, 247, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.brand-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--grass);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 10px;
+  font-size: clamp(1.5rem, 2.8vw, 2.7rem);
+  line-height: 1.03;
+  letter-spacing: 0;
+}
+
+.match-clock {
+  min-width: 126px;
+  padding: 14px 16px;
+  color: #f6fbf7;
+  background: var(--ink);
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.screen {
+  flex: 1;
+}
+
+.setup-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  align-items: stretch;
+  gap: 22px;
+}
+
+.setup-copy {
+  min-height: 460px;
+  padding: 28px;
+  color: #f8fbf7;
+  background:
+    linear-gradient(180deg, rgba(18, 32, 25, 0.18), rgba(18, 32, 25, 0.62)),
+    url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDEwMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3Jhc3MiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMTY4MzRiIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzBhNGEyYiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJtb3ciIHdpZHRoPSIyMjAiIGhlaWdodD0iMjIwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoMCkiPgogICAgICA8cmVjdCB3aWR0aD0iMTEwIiBoZWlnaHQ9IjIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPgogICAgICA8cmVjdCB4PSIxMTAiIHdpZHRoPSIxMTAiIGhlaWdodD0iMjIwIiBmaWxsPSJyZ2JhKDAsMCwwLDAuMDQpIi8+CiAgICA8L3BhdHRlcm4+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjEwMDAiIGZpbGw9InVybCgjZ3Jhc3MpIi8+CiAgPHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iMTAwMCIgZmlsbD0idXJsKCNtb3cpIi8+CiAgPHJlY3QgeD0iOTAiIHk9IjkwIiB3aWR0aD0iMTQyMCIgaGVpZ2h0PSI4MjAiIHJ4PSIxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNikiIHN0cm9rZS13aWR0aD0iMTAiLz4KICA8bGluZSB4MT0iODAwIiB5MT0iOTAiIHgyPSI4MDAiIHkyPSI5MTAiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjQ4KSIgc3Ryb2tlLXdpZHRoPSI4Ii8+CiAgPGNpcmNsZSBjeD0iODAwIiBjeT0iNTAwIiByPSIxNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjQ4KSIgc3Ryb2tlLXdpZHRoPSI4Ii8+CiAgPGNpcmNsZSBjeD0iODAwIiBjeT0iNTAwIiByPSIxMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjYyKSIvPgogIDxyZWN0IHg9IjkwIiB5PSIyODAiIHdpZHRoPSIyMzAiIGhlaWdodD0iNDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgc3Ryb2tlLXdpZHRoPSI4Ii8+CiAgPHJlY3QgeD0iMTI4MCIgeT0iMjgwIiB3aWR0aD0iMjMwIiBoZWlnaHQ9IjQ0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiIHN0cm9rZS13aWR0aD0iOCIvPgogIDxyZWN0IHg9IjkwIiB5PSIzOTAiIHdpZHRoPSI5NSIgaGVpZ2h0PSIyMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIiBzdHJva2Utd2lkdGg9IjgiLz4KICA8cmVjdCB4PSIxNDE1IiB5PSIzOTAiIHdpZHRoPSI5NSIgaGVpZ2h0PSIyMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIiBzdHJva2Utd2lkdGg9IjgiLz4KICA8Y2lyY2xlIGN4PSIyNjAiIGN5PSI1MDAiIHI9IjciIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC42NSkiLz4KICA8Y2lyY2xlIGN4PSIxMzQwIiBjeT0iNTAwIiByPSI3IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNjUpIi8+CiAgPHBhdGggZD0iTTMyMCA0MTBhMTUwIDE1MCAwIDAgMSAwIDE4MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMzgpIiBzdHJva2Utd2lkdGg9IjgiLz4KICA8cGF0aCBkPSJNMTI4MCA0MTBhMTUwIDE1MCAwIDAgMCAwIDE4MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMzgpIiBzdHJva2Utd2lkdGg9IjgiLz4KICA8Y2lyY2xlIGN4PSI5MCIgY3k9IjkwIiByPSIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMzQpIiBzdHJva2Utd2lkdGg9IjciLz4KICA8Y2lyY2xlIGN4PSIxNTEwIiBjeT0iOTAiIHI9IjM0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zNCkiIHN0cm9rZS13aWR0aD0iNyIvPgogIDxjaXJjbGUgY3g9IjkwIiBjeT0iOTEwIiByPSIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMzQpIiBzdHJva2Utd2lkdGg9IjciLz4KICA8Y2lyY2xlIGN4PSIxNTEwIiBjeT0iOTEwIiByPSIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMzQpIiBzdHJva2Utd2lkdGg9IjciLz4KPC9zdmc+Cg==");
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.setup-copy p {
+  max-width: 540px;
+  margin-bottom: 0;
+  color: rgba(248, 251, 247, 0.86);
+  font-size: 1.06rem;
+  line-height: 1.55;
+}
+
+.setup-form,
+.score-panel,
+.play-panel,
+.results-layout {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 8px;
+}
+
+.setup-form {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+textarea,
+input {
+  width: 100%;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+}
+
+textarea {
+  min-height: 210px;
+  padding: 14px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+input {
+  height: 46px;
+  padding: 0 12px;
+}
+
+textarea:focus,
+input:focus {
+  border-color: var(--grass);
+  box-shadow: 0 0 0 3px rgba(15, 107, 58, 0.16);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  align-items: center;
+  gap: 12px;
+}
+
+.error-message {
+  min-height: 22px;
+  margin-bottom: 0;
+  color: var(--red);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.primary-action,
+.ghost-button,
+.difficulty-card,
+.answer-button {
+  min-height: 46px;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 850;
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    background 140ms ease,
+    border-color 140ms ease;
+}
+
+.primary-action {
+  color: #fff;
+  background: var(--grass);
+  box-shadow: 0 10px 20px rgba(15, 107, 58, 0.2);
+}
+
+.primary-action:hover,
+.difficulty-card:hover,
+.answer-button:hover {
+  transform: translateY(-1px);
+}
+
+.primary-action:active,
+.difficulty-card:active,
+.answer-button:active {
+  transform: translateY(0);
+}
+
+.ghost-button {
+  padding: 0 14px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
+.ghost-button:hover {
+  border-color: var(--grass);
+}
+
+.game-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  gap: 18px;
+}
+
+.score-panel {
+  padding: 18px;
+}
+
+.panel-heading,
+.question-actions,
+.question-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.score-list {
+  display: grid;
+  gap: 10px;
+}
+
+.score-card {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.score-card.active {
+  border-color: var(--grass);
+  box-shadow: inset 4px 0 0 var(--grass);
+}
+
+.score-name {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-weight: 850;
+}
+
+.score-meta {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.play-panel {
+  min-height: 540px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.turn-header {
+  padding: 18px;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(8, 57, 35, 0.94), rgba(15, 107, 58, 0.88)),
+    url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDEwMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3Jhc3MiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMTY4MzRiIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzBhNGEyYiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxwYXR0ZXJuIGlkPSJtb3ciIHdpZHRoPSIyMjAiIGhlaWdodD0iMjIwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoMCkiPgogICAgICA8cmVjdCB3aWR0aD0iMTEwIiBoZWlnaHQ9IjIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPgogICAgICA8cmVjdCB4PSIxMTAiIHdpZHRoPSIxMTAiIGhlaWdodD0iMjIwIiBmaWxsPSJyZ2JhKDAsMCwwLDAuMDQpIi8+CiAgICA8L3BhdHRlcm4+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjEwMDAiIGZpbGw9InVybCgjZ3Jhc3MpIi8+CiAgPHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iMTAwMCIgZmlsbD0idXJsKCNtb3cpIi8+CiAgPHJlY3QgeD0iOTAiIHk9IjkwIiB3aWR0aD0iMTQyMCIgaGVpZ2h0PSI4MjAiIHJ4PSIxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNikiIHN0cm9rZS13aWR0aD0iMTAiLz4KICA8bGluZSB4MT0iODAwIiB5MT0iOTAiIHgyPSI4MDAiIHkyPSI5MTAiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjQ4KSIgc3Ryb2tlLXdpZHRoPSI4Ii8+CiAgPGNpcmNsZSBjeD0iODAwIiBjeT0iNTAwIiByPSIxNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjQ4KSIgc3Ryb2tlLXdpZHRoPSI4Ii8+CiAgPGNpcmNsZSBjeD0iODAwIiBjeT0iNTAwIiByPSIxMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjYyKSIvPgogIDxyZWN0IHg9IjkwIiB5PSIyODAiIHdpZHRoPSIyMzAiIGhlaWdodD0iNDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC41KSIgc3Ryb2tlLXdpZHRoPSI4Ii8+CiAgPHJlY3QgeD0iMTI4MCIgeT0iMjgwIiB3aWR0aD0iMjMwIiBoZWlnaHQ9IjQ0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiIHN0cm9rZS13aWR0aD0iOCIvPgogIDxyZWN0IHg9IjkwIiB5PSIzOTAiIHdpZHRoPSI5NSIgaGVpZ2h0PSIyMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIiBzdHJva2Utd2lkdGg9IjgiLz4KICA8cmVjdCB4PSIxNDE1IiB5PSIzOTAiIHdpZHRoPSI5NSIgaGVpZ2h0PSIyMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjUpIiBzdHJva2Utd2lkdGg9IjgiLz4KICA8Y2lyY2xlIGN4PSIyNjAiIGN5PSI1MDAiIHI9IjciIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC42NSkiLz4KICA8Y2lyY2xlIGN4PSIxMzQwIiBjeT0iNTAwIiByPSI3IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNjUpIi8+CiAgPHBhdGggZD0iTTMyMCA0MTBhMTUwIDE1MCAwIDAgMSAwIDE4MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMzgpIiBzdHJva2Utd2lkdGg9IjgiLz4KICA8cGF0aCBkPSJNMTI4MCA0MTBhMTUwIDE1MCAwIDAgMCAwIDE4MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMzgpIiBzdHJva2Utd2lkdGg9IjgiLz4KICA8Y2lyY2xlIGN4PSI5MCIgY3k9IjkwIiByPSIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMzQpIiBzdHJva2Utd2lkdGg9IjciLz4KICA8Y2lyY2xlIGN4PSIxNTEwIiBjeT0iOTAiIHI9IjM0IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4zNCkiIHN0cm9rZS13aWR0aD0iNyIvPgogIDxjaXJjbGUgY3g9IjkwIiBjeT0iOTEwIiByPSIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMzQpIiBzdHJva2Utd2lkdGg9IjciLz4KICA8Y2lyY2xlIGN4PSIxNTEwIiBjeT0iOTEwIiByPSIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMzQpIiBzdHJva2Utd2lkdGg9IjciLz4KPC9zdmc+Cg==");
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
+.turn-header h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3.4vw, 3rem);
+}
+
+.turn-header p {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.difficulty-view {
+  display: grid;
+  gap: 14px;
+}
+
+.difficulty-options {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.difficulty-card {
+  min-height: 150px;
+  padding: 16px;
+  text-align: left;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
+.difficulty-card strong,
+.difficulty-card span {
+  display: block;
+}
+
+.difficulty-card strong {
+  margin-bottom: 12px;
+  font-size: 1.12rem;
+}
+
+.difficulty-card span {
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.point-badge {
+  width: fit-content;
+  margin-top: 16px;
+  padding: 6px 10px;
+  color: var(--ink);
+  background: rgba(241, 185, 61, 0.28);
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.question-view {
+  display: grid;
+  gap: 16px;
+}
+
+.difficulty-pill,
+.law-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.difficulty-pill {
+  color: var(--ink);
+  background: rgba(241, 185, 61, 0.3);
+}
+
+.law-pill {
+  color: var(--blue);
+  background: rgba(45, 108, 223, 0.1);
+}
+
+#questionText {
+  max-width: 850px;
+  margin-bottom: 0;
+  font-size: clamp(1.45rem, 3vw, 2.6rem);
+  line-height: 1.12;
+}
+
+.answer-options {
+  display: grid;
+  gap: 10px;
+}
+
+.answer-button {
+  width: 100%;
+  padding: 14px 16px;
+  color: var(--ink);
+  text-align: left;
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
+.answer-button.correct {
+  border-color: var(--grass);
+  background: rgba(15, 107, 58, 0.13);
+}
+
+.answer-button.wrong {
+  border-color: var(--red);
+  background: rgba(217, 83, 79, 0.12);
+}
+
+.answer-button:disabled {
+  cursor: default;
+  transform: none;
+}
+
+.feedback-box {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(248, 251, 247, 0.9);
+  line-height: 1.5;
+}
+
+.feedback-box strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.results-layout {
+  padding: 28px;
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+
+.final-table {
+  display: grid;
+  gap: 10px;
+}
+
+.final-row {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) 110px 120px;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-weight: 780;
+}
+
+.final-row:first-child {
+  border-color: var(--gold);
+  box-shadow: inset 4px 0 0 var(--gold);
+}
+
+.source-note {
+  color: rgba(18, 32, 25, 0.72);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.source-note a {
+  color: var(--grass);
+  font-weight: 800;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .setup-grid,
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .setup-copy {
+    min-height: 300px;
+  }
+
+  .difficulty-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .app-shell {
+    width: min(100% - 18px, 1180px);
+    margin: 9px auto;
+    padding: 14px;
+  }
+
+  .brand-strip,
+  .panel-heading,
+  .question-actions,
+  .question-topline {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .match-clock {
+    width: 100%;
+  }
+
+  .difficulty-options,
+  .final-row,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .difficulty-card {
+    min-height: 128px;
+  }
+}
+
+    </style>
+
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="brand-strip" aria-label="Quiz title">
+        <div>
+          <p class="eyebrow">IFAB Laws Challenge</p>
+          <h1>Football Rules Quiz</h1>
+        </div>
+        <div class="match-clock" aria-label="Match clock">
+          <span id="roundLabel">Setup</span>
+        </div>
+      </section>
+
+      <section id="setupScreen" class="screen setup-grid">
+        <div class="setup-copy">
+          <h2>Build your match room</h2>
+          <p>
+            Every player gets a run at the Laws. Easy calls keep you moving;
+            brave calls can flip the table.
+          </p>
+        </div>
+
+        <form id="setupForm" class="setup-form">
+          <label for="playerNames">Players, one name per line</label>
+          <textarea
+            id="playerNames"
+            name="playerNames"
+            rows="7"
+            placeholder="Alex&#10;Sam&#10;Jordan"
+            autocomplete="off"
+          ></textarea>
+
+          <div class="form-row">
+            <label for="turnsPerPlayer">Turns each</label>
+            <input
+              id="turnsPerPlayer"
+              name="turnsPerPlayer"
+              type="number"
+              min="1"
+              max="12"
+              value="5"
+            />
+          </div>
+
+          <p id="setupError" class="error-message" role="alert"></p>
+
+          <button class="primary-action" type="submit">Start Quiz</button>
+        </form>
+      </section>
+
+      <section id="gameScreen" class="screen game-layout" hidden>
+        <aside class="score-panel" aria-label="Scoreboard">
+          <div class="panel-heading">
+            <p class="eyebrow">Scoreboard</p>
+            <button id="restartButton" class="ghost-button" type="button">Restart</button>
+          </div>
+          <div id="scoreboard" class="score-list"></div>
+        </aside>
+
+        <section class="play-panel" aria-label="Quiz area">
+          <div id="turnHeader" class="turn-header"></div>
+
+          <div id="difficultyView" class="difficulty-view">
+            <p class="eyebrow">Choose difficulty</p>
+            <div id="difficultyOptions" class="difficulty-options"></div>
+          </div>
+
+          <div id="questionView" class="question-view" hidden>
+            <div class="question-topline">
+              <span id="questionDifficulty" class="difficulty-pill"></span>
+              <span id="questionLaw" class="law-pill"></span>
+            </div>
+            <h2 id="questionText"></h2>
+            <div id="answerOptions" class="answer-options"></div>
+            <div id="feedbackBox" class="feedback-box" hidden></div>
+            <div class="question-actions">
+              <button id="skipButton" class="ghost-button" type="button">Skip</button>
+              <button id="nextButton" class="primary-action" type="button" hidden>
+                Next Player
+              </button>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="resultsScreen" class="screen results-layout" hidden>
+        <div>
+          <p class="eyebrow">Full time</p>
+          <h2 id="winnerTitle"></h2>
+          <p id="winnerSummary"></p>
+        </div>
+        <div id="finalTable" class="final-table"></div>
+        <button id="playAgainButton" class="primary-action" type="button">Play Again</button>
+      </section>
+
+      <footer class="source-note">
+        Questions are based on the official IFAB Laws of the Game. The IFAB has
+        published 2026/27 Laws, effective from 1 July 2026; this quiz avoids
+        future-only law changes.
+        <a href="https://www.theifab.com/laws-of-the-game-documents/" target="_blank" rel="noreferrer">
+          IFAB documents
+        </a>
+      </footer>
+    </main>
+    <script>
+const difficulties = [
+  {
+    id: "amateur",
+    label: "Amateur",
+    points: 1,
+    description: "Core calls and basic match rules"
+  },
+  {
+    id: "intermediate",
+    label: "Intermediate",
+    points: 2,
+    description: "Restarts, equipment, and field details"
+  },
+  {
+    id: "pro",
+    label: "Pro",
+    points: 3,
+    description: "Offside, advantage, and disciplinary calls"
+  },
+  {
+    id: "referee",
+    label: "Referee",
+    points: 4,
+    description: "Scenario decisions under pressure"
+  }
+];
+
+const questionBank = {
+  amateur: [
+    {
+      id: "a1",
+      law: "Law 3",
+      question: "How many players can one team have on the field at most?",
+      choices: ["11, including one goalkeeper", "10 plus unlimited substitutes", "12 if one is a goalkeeper", "9 plus one goalkeeper"],
+      answer: 0,
+      explanation: "Law 3 sets a maximum of eleven players per team, and one of them must be the goalkeeper."
+    },
+    {
+      id: "a2",
+      law: "Law 3",
+      question: "A match may not start or continue if a team has fewer than how many players?",
+      choices: ["Five", "Six", "Seven", "Eight"],
+      answer: 2,
+      explanation: "The minimum number is seven. Below that, the match cannot start or continue."
+    },
+    {
+      id: "a3",
+      law: "Law 7",
+      question: "What is the normal length of a match?",
+      choices: ["Two halves of 40 minutes", "Two halves of 45 minutes", "Four quarters of 20 minutes", "One period of 90 minutes"],
+      answer: 1,
+      explanation: "Law 7 uses two equal halves of 45 minutes unless the referee and teams agree otherwise before the match."
+    },
+    {
+      id: "a4",
+      law: "Law 7",
+      question: "What is the maximum normal half-time interval?",
+      choices: ["10 minutes", "12 minutes", "15 minutes", "20 minutes"],
+      answer: 2,
+      explanation: "Law 7 says the half-time interval must not exceed 15 minutes."
+    },
+    {
+      id: "a5",
+      law: "Law 9",
+      question: "When is the ball out of play over a boundary line?",
+      choices: ["When most of it crosses the line", "When the whole ball crosses the line", "When a player appeals for it", "When it touches the line"],
+      answer: 1,
+      explanation: "The whole ball must pass fully over the goal line or touchline, on the ground or in the air."
+    },
+    {
+      id: "a6",
+      law: "Law 11",
+      question: "Is simply standing in an offside position an offence?",
+      choices: ["Yes, always", "Only inside the penalty area", "No, involvement in active play matters", "Only if the assistant referee raises the flag"],
+      answer: 2,
+      explanation: "Law 11 is clear that offside position alone is not an offence."
+    },
+    {
+      id: "a7",
+      law: "Law 11",
+      question: "There is no offside offence if the player receives the ball directly from which restart?",
+      choices: ["A throw-in", "A direct free kick", "A dropped ball", "A penalty kick"],
+      answer: 0,
+      explanation: "Law 11 excludes direct receipt from a goal kick, throw-in, or corner kick."
+    },
+    {
+      id: "a8",
+      law: "Law 13",
+      question: "A direct free kick goes straight into the opponents' goal. What is the decision?",
+      choices: ["Goal", "Goal kick", "Corner kick", "Retake"],
+      answer: 0,
+      explanation: "A direct free kick can score directly against the opposing team."
+    },
+    {
+      id: "a9",
+      law: "Law 13",
+      question: "An indirect free kick goes straight into the opponents' goal without touching anyone else. What is awarded?",
+      choices: ["Goal", "Goal kick", "Corner kick", "Retake every time"],
+      answer: 1,
+      explanation: "A goal cannot be scored directly from an indirect free kick, so the restart is a goal kick."
+    },
+    {
+      id: "a10",
+      law: "Law 15",
+      question: "A throw-in goes directly into the opponents' goal. What is the restart?",
+      choices: ["Goal", "Goal kick", "Corner kick", "Penalty kick"],
+      answer: 1,
+      explanation: "A goal cannot be scored directly from a throw-in. If it enters the opponents' goal, play restarts with a goal kick."
+    },
+    {
+      id: "a11",
+      law: "Law 14",
+      question: "Can a goal be scored directly from a penalty kick?",
+      choices: ["Yes", "No", "Only after a rebound", "Only in extra time"],
+      answer: 0,
+      explanation: "Law 14 permits a goal to be scored directly from a penalty kick."
+    },
+    {
+      id: "a12",
+      law: "Law 5",
+      question: "Who has full authority to enforce the Laws during the match?",
+      choices: ["The home captain", "The referee", "The fourth official", "The competition observer"],
+      answer: 1,
+      explanation: "Law 5 gives the referee full authority to enforce the Laws of the Game for the match."
+    },
+    {
+      id: "a13",
+      law: "Law 2",
+      question: "What shape is the ball used in a match?",
+      choices: ["Spherical", "Oval", "Flat on one side", "Any shape if both teams agree"],
+      answer: 0,
+      explanation: "Law 2 requires the ball to be spherical."
+    },
+    {
+      id: "a14",
+      law: "Law 4",
+      question: "Which item is part of the basic compulsory equipment?",
+      choices: ["Shin guards", "A necklace", "A baseball cap for every player", "A stopwatch"],
+      answer: 0,
+      explanation: "The basic compulsory equipment includes shin guards, along with shirt, shorts, socks, and footwear."
+    },
+    {
+      id: "a15",
+      law: "Law 1",
+      question: "The longer boundary lines of the field are called what?",
+      choices: ["Goal lines", "Touchlines", "Penalty lines", "Halfway lines"],
+      answer: 1,
+      explanation: "Law 1 calls the longer boundary lines touchlines."
+    },
+    {
+      id: "a16",
+      law: "Law 1",
+      question: "The shorter boundary lines of the field are called what?",
+      choices: ["Touchlines", "Goal lines", "Centre lines", "Corner lines"],
+      answer: 1,
+      explanation: "Law 1 calls the shorter boundary lines goal lines."
+    },
+    {
+      id: "a17",
+      law: "Law 8",
+      question: "Can a goal be scored directly against the opponents from a kick-off?",
+      choices: ["Yes", "No", "Only after two touches", "Only from the first kick-off of the match"],
+      answer: 0,
+      explanation: "Law 8 allows a goal to be scored directly against the opponents from a kick-off."
+    },
+    {
+      id: "a18",
+      law: "Law 8",
+      question: "At the start of each half, where is the ball placed for kick-off?",
+      choices: ["Penalty mark", "Corner area", "Centre mark", "Goal area"],
+      answer: 2,
+      explanation: "The ball is placed on the centre mark for kick-off."
+    },
+    {
+      id: "a19",
+      law: "Law 10",
+      question: "When is a goal scored?",
+      choices: ["When any part of the ball touches the goal line", "When the whole ball passes over the goal line between the posts and under the crossbar", "When the referee points to the centre circle", "When the goalkeeper cannot reach the ball"],
+      answer: 1,
+      explanation: "A goal is scored only when the whole ball crosses the goal line between the posts and under the crossbar, provided no offence was committed."
+    },
+    {
+      id: "a20",
+      law: "Law 12",
+      question: "Which restart is awarded for most physical fouls outside the penalty area?",
+      choices: ["Direct free kick", "Indirect free kick", "Dropped ball", "Throw-in"],
+      answer: 0,
+      explanation: "Law 12 lists many contact offences that are punished with a direct free kick."
+    },
+    {
+      id: "a21",
+      law: "Law 14",
+      question: "Where is a penalty kick taken from?",
+      choices: ["The centre mark", "The penalty mark", "The edge of the penalty area", "Anywhere in the penalty area"],
+      answer: 1,
+      explanation: "A penalty kick is taken from the penalty mark."
+    },
+    {
+      id: "a22",
+      law: "Law 16",
+      question: "Who takes a goal kick?",
+      choices: ["A player from the attacking team", "A player from the defending team", "Only the goalkeeper", "The referee"],
+      answer: 1,
+      explanation: "A goal kick is taken by a player of the defending team."
+    },
+    {
+      id: "a23",
+      law: "Law 17",
+      question: "Who takes a corner kick?",
+      choices: ["The defending team", "The attacking team", "The goalkeeper only", "The team that last touched the ball"],
+      answer: 1,
+      explanation: "A corner kick is taken by the attacking team after the ball crosses the goal line last touched by a defender and no goal is scored."
+    },
+    {
+      id: "a24",
+      law: "Law 5",
+      question: "Can the referee take disciplinary action from entering the field for pre-match inspection until leaving after the match?",
+      choices: ["Yes", "No, only after kick-off", "Only during the 90 minutes", "Only with both captains' permission"],
+      answer: 0,
+      explanation: "The referee has disciplinary authority from entering the field for the pre-match inspection until leaving after the match."
+    }
+  ],
+  intermediate: [
+    {
+      id: "c1",
+      law: "Law 1",
+      question: "How far is the penalty mark from the midpoint between the goalposts?",
+      choices: ["9.15 m", "10 m", "11 m", "12.5 m"],
+      answer: 2,
+      explanation: "The penalty mark is 11 metres, or 12 yards, from the midpoint between the goalposts."
+    },
+    {
+      id: "c2",
+      law: "Law 1",
+      question: "What is the radius of the centre circle?",
+      choices: ["5.5 m", "7.32 m", "9.15 m", "11 m"],
+      answer: 2,
+      explanation: "The centre circle has a radius of 9.15 metres, or 10 yards."
+    },
+    {
+      id: "c3",
+      law: "Law 8",
+      question: "At kick-off, how far must opponents be from the ball until it is in play?",
+      choices: ["5 m", "7 m", "9.15 m", "11 m"],
+      answer: 2,
+      explanation: "Opponents must be at least 9.15 metres from the ball at kick-off."
+    },
+    {
+      id: "c4",
+      law: "Law 15",
+      question: "Which throw-in technique is legal?",
+      choices: ["One hand from the touchline", "Both hands from behind and over the head", "Both hands from chest height", "Any throw if both feet are off the field"],
+      answer: 1,
+      explanation: "The thrower must use both hands and deliver the ball from behind and over the head."
+    },
+    {
+      id: "c5",
+      law: "Law 16",
+      question: "When is a goal kick in play?",
+      choices: ["When it leaves the penalty area", "When it is kicked and clearly moves", "When it crosses the halfway line", "When an opponent touches it"],
+      answer: 1,
+      explanation: "A goal kick is in play once it is kicked and clearly moves."
+    },
+    {
+      id: "c6",
+      law: "Law 17",
+      question: "Does a corner kick need to leave the corner area to be in play?",
+      choices: ["Yes, always", "Only in professional matches", "No, it is in play when kicked and clearly moves", "Only if the referee says so"],
+      answer: 2,
+      explanation: "A corner kick is in play when kicked and clearly moves; it does not need to leave the corner area."
+    },
+    {
+      id: "c7",
+      law: "Law 8",
+      question: "A kick-off goes directly into the kicker's own goal. What is awarded?",
+      choices: ["Goal", "Goal kick", "Corner kick to the opponents", "Retake the kick-off"],
+      answer: 2,
+      explanation: "If a kick-off goes directly into the kicker's own goal, the opposing team gets a corner kick."
+    },
+    {
+      id: "c8",
+      law: "Law 2",
+      question: "The ball becomes defective while in play. What is the restart?",
+      choices: ["Dropped ball", "Indirect free kick", "Retake from the last restart spot", "Throw-in"],
+      answer: 0,
+      explanation: "If the ball becomes defective during play, play is stopped and restarted with a dropped ball."
+    },
+    {
+      id: "c9",
+      law: "Law 4",
+      question: "Can a player cover jewellery with tape and keep playing?",
+      choices: ["Yes", "Only earrings", "Only if the referee agrees", "No, jewellery must be removed"],
+      answer: 3,
+      explanation: "Jewellery is forbidden and must be removed; tape does not make it legal."
+    },
+    {
+      id: "c10",
+      law: "Law 12",
+      question: "A goalkeeper handles a ball deliberately kicked by a team-mate inside the goalkeeper's own penalty area. What is the restart?",
+      choices: ["Play on", "Indirect free kick", "Direct free kick", "Penalty kick"],
+      answer: 1,
+      explanation: "The goalkeeper is not allowed to handle a deliberate kick from a team-mate; the restart is an indirect free kick."
+    },
+    {
+      id: "c11",
+      law: "Law 15",
+      question: "How far from the throw-in point must opponents stand?",
+      choices: ["1 m", "2 m", "5 m", "9.15 m"],
+      answer: 1,
+      explanation: "Opponents must be at least 2 metres from the point on the touchline where the throw-in is taken."
+    },
+    {
+      id: "c12",
+      law: "Law 10",
+      question: "A goalkeeper throws the ball directly into the opponents' goal. What is awarded?",
+      choices: ["Goal", "Goal kick", "Corner kick", "Indirect free kick"],
+      answer: 1,
+      explanation: "A goal is not awarded from a direct goalkeeper throw into the opponents' goal; the restart is a goal kick."
+    },
+    {
+      id: "c13",
+      law: "Law 1",
+      question: "What is the width of a full-size goal between the inside of the posts?",
+      choices: ["5.50 m", "7.32 m", "9.15 m", "11 m"],
+      answer: 1,
+      explanation: "Law 1 sets the distance between the inside of the posts at 7.32 metres, or 8 yards."
+    },
+    {
+      id: "c14",
+      law: "Law 1",
+      question: "What is the height of the crossbar from the ground?",
+      choices: ["2.00 m", "2.24 m", "2.44 m", "3.00 m"],
+      answer: 2,
+      explanation: "The lower edge of the crossbar is 2.44 metres, or 8 feet, above the ground."
+    },
+    {
+      id: "c15",
+      law: "Law 1",
+      question: "How far from the corner arc must opponents be at a corner kick until the ball is in play?",
+      choices: ["2 m", "5 m", "9.15 m", "11 m"],
+      answer: 2,
+      explanation: "Opponents must remain at least 9.15 metres from the corner arc until the ball is in play."
+    },
+    {
+      id: "c16",
+      law: "Law 3",
+      question: "Who must be informed before a substitution is made?",
+      choices: ["The referee", "The home coach", "The opposing captain", "The goalkeeper only"],
+      answer: 0,
+      explanation: "The referee must be informed before any substitution is made."
+    },
+    {
+      id: "c17",
+      law: "Law 3",
+      question: "When is a substitution completed?",
+      choices: ["When the substitute warms up", "When the substitute enters the field", "When the coach says the name", "When the ball next goes out"],
+      answer: 1,
+      explanation: "A substitution is completed when the substitute enters the field."
+    },
+    {
+      id: "c18",
+      law: "Law 8",
+      question: "At kick-off, where must all players except the kicker be?",
+      choices: ["Inside the opponents' half", "Inside their own half", "Outside the field", "Inside the centre circle"],
+      answer: 1,
+      explanation: "All players except the kicker must be in their own half at kick-off."
+    },
+    {
+      id: "c19",
+      law: "Law 8",
+      question: "When is the ball in play from a kick-off?",
+      choices: ["When it is kicked and clearly moves", "When it leaves the centre circle", "When a second player touches it", "When the referee blows again"],
+      answer: 0,
+      explanation: "The ball is in play when it is kicked and clearly moves."
+    },
+    {
+      id: "c20",
+      law: "Law 13",
+      question: "For most free kicks, how far away must opponents be until the ball is in play?",
+      choices: ["5 m", "7.32 m", "9.15 m", "12 m"],
+      answer: 2,
+      explanation: "Opponents must usually be at least 9.15 metres from the ball until it is in play."
+    },
+    {
+      id: "c21",
+      law: "Law 13",
+      question: "A direct or indirect free kick is taken. When is the ball in play?",
+      choices: ["When it is kicked and clearly moves", "When it travels one full metre", "When an opponent touches it", "When the referee lowers the arm"],
+      answer: 0,
+      explanation: "Free kicks are in play when the ball is kicked and clearly moves."
+    },
+    {
+      id: "c22",
+      law: "Law 14",
+      question: "At a penalty kick, where must the goalkeeper have at least part of one foot until the ball is kicked?",
+      choices: ["On, above, or behind the goal line", "On the penalty mark", "Outside the goal", "Anywhere in the goal area"],
+      answer: 0,
+      explanation: "The goalkeeper must have at least part of one foot touching, in line with, or behind the goal line until the kick is taken."
+    },
+    {
+      id: "c23",
+      law: "Law 14",
+      question: "At a penalty kick, where must players other than the kicker and goalkeeper be?",
+      choices: ["On the goal line", "At least 9.15 m from the penalty mark and outside the penalty area and penalty arc", "Anywhere behind the kicker", "Inside the centre circle"],
+      answer: 1,
+      explanation: "Other players must stay outside the penalty area, outside the penalty arc, behind the penalty mark, and at least 9.15 metres from it."
+    },
+    {
+      id: "c24",
+      law: "Law 15",
+      question: "At a throw-in, where must the thrower have part of each foot?",
+      choices: ["On the touchline or on the ground outside the touchline", "Inside the field only", "On the halfway line", "Anywhere behind the referee"],
+      answer: 0,
+      explanation: "The thrower must have part of each foot on the touchline or on the ground outside the touchline."
+    }
+  ],
+  pro: [
+    {
+      id: "p1",
+      law: "Law 12",
+      question: "A reckless challenge is punished with which disciplinary action?",
+      choices: ["No card", "Yellow card", "Red card", "Dropped ball only"],
+      answer: 1,
+      explanation: "Careless means no card, reckless means caution, and excessive force means sending-off."
+    },
+    {
+      id: "p2",
+      law: "Law 12",
+      question: "For handball decisions, where is the upper boundary of the arm?",
+      choices: ["The shoulder joint", "The bottom of the armpit", "The elbow", "The shirt sleeve edge"],
+      answer: 1,
+      explanation: "IFAB uses the bottom of the armpit as the upper boundary of the arm for handball and offside arm decisions."
+    },
+    {
+      id: "p3",
+      law: "Law 11",
+      question: "An attacker in an offside position receives the ball from an opponent who deliberately played it. What is usually the decision?",
+      choices: ["Offside every time", "Play continues", "Penalty to the defending team", "Dropped ball"],
+      answer: 1,
+      explanation: "Deliberate play by an opponent generally means the attacker has not gained an offside advantage, unless it was a deliberate save."
+    },
+    {
+      id: "p4",
+      law: "Law 11",
+      question: "A shot rebounds from the crossbar to a team-mate who was already in an offside position, and they score. What is the decision?",
+      choices: ["Goal", "Indirect free kick for offside", "Corner kick", "Retake the shot"],
+      answer: 1,
+      explanation: "Playing the ball after a rebound from the goal frame can be gaining an advantage from an offside position."
+    },
+    {
+      id: "p5",
+      law: "Law 11",
+      question: "A defender deliberately leaves the field to put an attacker offside. How is that defender treated for offside position?",
+      choices: ["Ignored completely", "Considered on the goal line or touchline", "Counted as a substitute", "The attacker is automatically offside"],
+      answer: 1,
+      explanation: "For offside, that defender is considered on the boundary line until the next stoppage or the defending team clears the phase."
+    },
+    {
+      id: "p6",
+      law: "Law 11",
+      question: "An attacker in an offside position is fouled before playing or challenging for the ball. What is penalised?",
+      choices: ["The foul", "Offside", "Both offences", "A dropped ball"],
+      answer: 0,
+      explanation: "If the foul happens before any offside involvement, the foul is penalised."
+    },
+    {
+      id: "p7",
+      law: "Law 13",
+      question: "How does the referee signal an indirect free kick?",
+      choices: ["Both arms crossed", "One arm raised above the head", "Pointing to the penalty mark", "No signal is required"],
+      answer: 1,
+      explanation: "The referee raises an arm above the head and keeps the signal until the required next event happens."
+    },
+    {
+      id: "p8",
+      law: "Law 5",
+      question: "Two offences happen at the same time. What should the referee punish?",
+      choices: ["The first offence seen", "The more serious offence", "The offence by the home team", "Always the direct free kick offence"],
+      answer: 1,
+      explanation: "Law 5 directs the referee to punish the more serious offence when simultaneous offences occur."
+    },
+    {
+      id: "p9",
+      law: "Law 5",
+      question: "The referee plays advantage but it does not benefit the non-offending team within a few seconds. What can the referee do?",
+      choices: ["Ignore the original offence", "Penalise the original offence", "Award a corner kick", "Restart with a dropped ball"],
+      answer: 1,
+      explanation: "If the expected advantage does not arrive quickly, the referee can go back to the original offence."
+    },
+    {
+      id: "p10",
+      law: "Law 12",
+      question: "A goalkeeper in their own penalty area controls the ball with the hands for more than eight seconds. What is awarded?",
+      choices: ["Indirect free kick", "Corner kick to the opponents", "Penalty kick", "Dropped ball"],
+      answer: 1,
+      explanation: "Under the IFAB goalkeeper time rule, the restart is a corner kick to the opposing team."
+    },
+    {
+      id: "p11",
+      law: "Law 12",
+      question: "When is a goalkeeper considered to control the ball with the hands?",
+      choices: ["Only with two hands on the ball", "Only when lying on the ball", "Also while bouncing it or holding it on an open hand", "Only after six seconds"],
+      answer: 2,
+      explanation: "Control includes holding the ball, trapping it, bouncing it, or throwing it in the air."
+    },
+    {
+      id: "p12",
+      law: "Law 12",
+      question: "A player uses excessive force in a challenge. What is the sanction?",
+      choices: ["Verbal warning", "Yellow card", "Red card", "No sanction if the ball is won"],
+      answer: 2,
+      explanation: "Using excessive force endangers safety and is a sending-off offence."
+    },
+    {
+      id: "p13",
+      law: "Law 12",
+      question: "A player denies an obvious goal-scoring opportunity by deliberately handling the ball. What is the normal sanction?",
+      choices: ["No card", "Yellow card", "Red card", "Dropped ball only"],
+      answer: 2,
+      explanation: "Denying a goal or obvious goal-scoring opportunity by a handball offence is a sending-off offence, except for the goalkeeper inside their own penalty area."
+    },
+    {
+      id: "p14",
+      law: "Law 12",
+      question: "A player stops a promising attack by holding an opponent. What disciplinary action is usually taken?",
+      choices: ["No action", "Yellow card", "Red card", "The match is abandoned"],
+      answer: 1,
+      explanation: "Stopping a promising attack is normally a cautionable offence."
+    },
+    {
+      id: "p15",
+      law: "Law 12",
+      question: "A player delays the restart of play. What is the disciplinary sanction?",
+      choices: ["Warning only every time", "Yellow card", "Red card", "Penalty kick"],
+      answer: 1,
+      explanation: "Delaying the restart of play is a cautionable offence."
+    },
+    {
+      id: "p16",
+      law: "Law 12",
+      question: "A player shows dissent by word or action. What is the disciplinary sanction?",
+      choices: ["Yellow card", "Red card every time", "Dropped ball", "No sanction is allowed"],
+      answer: 0,
+      explanation: "Dissent by word or action is a cautionable offence."
+    },
+    {
+      id: "p17",
+      law: "Law 12",
+      question: "Serious foul play is punished with which card?",
+      choices: ["No card", "Yellow card", "Red card", "Blue card"],
+      answer: 2,
+      explanation: "Serious foul play is a sending-off offence."
+    },
+    {
+      id: "p18",
+      law: "Law 12",
+      question: "Violent conduct is punished with which card?",
+      choices: ["Yellow card", "Red card", "No card if the ball is nearby", "Only a warning"],
+      answer: 1,
+      explanation: "Violent conduct is a sending-off offence."
+    },
+    {
+      id: "p19",
+      law: "Law 12",
+      question: "A substitute commits an offence that interferes with play. Which restart can be awarded?",
+      choices: ["Direct free kick or penalty kick", "Only an indirect free kick", "Only a dropped ball", "Only a throw-in"],
+      answer: 0,
+      explanation: "If a substitute interferes with play as described in Law 12, play restarts with a direct free kick or penalty kick."
+    },
+    {
+      id: "p20",
+      law: "Law 11",
+      question: "Which body parts can count for offside position?",
+      choices: ["Hands and arms only", "Any part of the head, body, or feet that can legally score", "Only both feet", "Only the chest"],
+      answer: 1,
+      explanation: "Offside position is judged using the head, body, or feet, not the hands and arms."
+    },
+    {
+      id: "p21",
+      law: "Law 11",
+      question: "A player level with the second-last opponent is in what position for offside?",
+      choices: ["Onside", "Offside", "Automatically interfering", "Cautionable"],
+      answer: 0,
+      explanation: "A player level with the second-last opponent or the last two opponents is not in an offside position."
+    },
+    {
+      id: "p22",
+      law: "Law 11",
+      question: "A player in an offside position clearly obstructs an opponent's line of vision. What is the decision?",
+      choices: ["No offence", "Offside", "Penalty kick", "Corner kick"],
+      answer: 1,
+      explanation: "Interfering with an opponent by obstructing line of vision can make an offside-position player guilty of offside."
+    },
+    {
+      id: "p23",
+      law: "Law 5",
+      question: "Can the referee change a decision after realizing it is incorrect?",
+      choices: ["Yes, if play has not restarted or the referee has not signalled the end of the half or match and left the field", "No, never", "Only if the captain asks", "Only before the ball stops moving"],
+      answer: 0,
+      explanation: "The referee may change an incorrect decision within the limits set by Law 5, usually before play has restarted."
+    },
+    {
+      id: "p24",
+      law: "Law 5",
+      question: "What does the advantage principle allow the referee to do?",
+      choices: ["Let play continue when the non-offending team benefits", "Ignore all fouls", "Award two goals", "Let the captain choose the restart"],
+      answer: 0,
+      explanation: "Advantage lets play continue when stopping play would benefit the team that committed the offence."
+    }
+  ],
+  referee: [
+    {
+      id: "r1",
+      law: "Law 14",
+      question: "At a penalty kick, the kicker backheels the ball but it moves forward. Is that legal?",
+      choices: ["Yes", "No, backheels are banned", "Only if the goalkeeper agrees", "Only in a shoot-out"],
+      answer: 0,
+      explanation: "Backheeling is permitted at a penalty kick as long as the ball is kicked forward."
+    },
+    {
+      id: "r2",
+      law: "Law 14",
+      question: "The penalty kicker touches the ball again before any other player touches it. What is the usual restart?",
+      choices: ["Indirect free kick", "Retake", "Goal kick", "Corner kick"],
+      answer: 0,
+      explanation: "The kicker may not play the ball a second time until another player has touched it."
+    },
+    {
+      id: "r3",
+      law: "Law 14",
+      question: "A defending player infringes at a penalty kick and the kick is saved. What happens?",
+      choices: ["Goal kick", "Retake", "Dropped ball", "Indirect free kick to the defence"],
+      answer: 1,
+      explanation: "If the defending team infringes and the penalty is missed or saved, the kick is retaken."
+    },
+    {
+      id: "r4",
+      law: "Law 9",
+      question: "The ball hits the referee, stays on the field, and the team in possession starts a promising attack. What is the restart?",
+      choices: ["Play on", "Dropped ball", "Indirect free kick", "Retake from the last restart"],
+      answer: 1,
+      explanation: "If contact with a match official creates a promising attack, a goal, or a change of possession, play stops for a dropped ball."
+    },
+    {
+      id: "r5",
+      law: "Law 8",
+      question: "Play is stopped with the ball inside the penalty area and no other restart applies. Who gets the dropped ball?",
+      choices: ["The attacking captain", "The defending goalkeeper", "The last player to touch it", "Any player chosen by the referee"],
+      answer: 1,
+      explanation: "For a dropped ball inside the penalty area, the ball is dropped to the defending goalkeeper."
+    },
+    {
+      id: "r6",
+      law: "Law 13",
+      question: "A defending team wins a free kick inside its own goal area. Where may it be taken?",
+      choices: ["Only where the offence happened", "Anywhere in the goal area", "On the penalty mark", "From the nearest corner of the goal area"],
+      answer: 1,
+      explanation: "Free kicks to the defending team in its goal area may be taken from anywhere inside that area."
+    },
+    {
+      id: "r7",
+      law: "Law 12",
+      question: "A player enters without permission and then commits a reckless tackle. What is the correct disciplinary outcome?",
+      choices: ["One warning only", "One yellow card only", "Two cautions, then red card", "Straight red card only"],
+      answer: 2,
+      explanation: "The player has committed two separate cautionable offences, so two yellow cards lead to a sending-off."
+    },
+    {
+      id: "r8",
+      law: "Law 12",
+      question: "A substitute throws an object onto the field and it interferes with play. What is the restart?",
+      choices: ["Dropped ball", "Direct free kick or penalty kick", "Indirect free kick only", "Throw-in"],
+      answer: 1,
+      explanation: "Interference by a substitute throwing an object is restarted with a direct free kick, or a penalty kick if applicable."
+    },
+    {
+      id: "r9",
+      law: "Law 13",
+      question: "The referee forgets to signal an indirect free kick, and the ball goes directly into the goal. What happens?",
+      choices: ["Goal", "Goal kick", "Retake the indirect free kick", "Corner kick"],
+      answer: 2,
+      explanation: "If the referee fails to show that the kick is indirect and it goes straight in, the indirect free kick is retaken."
+    },
+    {
+      id: "r10",
+      law: "Law 17",
+      question: "A corner taker legally kicks the ball at an opponent to play it again, without careless or reckless action. What should the referee do?",
+      choices: ["Allow play to continue", "Caution the kicker", "Award a goal kick", "Retake the corner"],
+      answer: 0,
+      explanation: "A player may deliberately play the ball off an opponent to play it again if it is not done carelessly, recklessly, or with excessive force."
+    },
+    {
+      id: "r11",
+      law: "Law 11",
+      question: "An attacker stands still inside the goal between the posts as a team-mate's shot goes in, and commits no offence. What is the decision?",
+      choices: ["Goal", "Offside", "Indirect free kick", "Dropped ball"],
+      answer: 0,
+      explanation: "If that player remains stationary and commits no offside or Law 12 offence, the goal is awarded."
+    },
+    {
+      id: "r12",
+      law: "Law 10",
+      question: "The referee signals a goal before the ball has fully crossed the goal line. What is the restart?",
+      choices: ["Goal", "Goal kick", "Dropped ball", "Corner kick"],
+      answer: 2,
+      explanation: "If a goal is signalled before the whole ball crosses the line, play is restarted with a dropped ball."
+    },
+    {
+      id: "r13",
+      law: "Law 14",
+      question: "At a penalty kick, the kicker illegally feints after completing the run-up and scores. What is the decision?",
+      choices: ["Goal", "Indirect free kick to the defending team and caution the kicker", "Retake only", "Dropped ball"],
+      answer: 1,
+      explanation: "Illegal feinting after the run-up is completed is punished by cautioning the kicker and awarding an indirect free kick."
+    },
+    {
+      id: "r14",
+      law: "Law 14",
+      question: "The wrong player takes a penalty kick and scores. What is the restart and sanction?",
+      choices: ["Goal, no card", "Indirect free kick to the defending team and caution the wrong kicker", "Retake with no card", "Dropped ball"],
+      answer: 1,
+      explanation: "If a team-mate of the identified kicker takes the kick, the referee cautions that player and awards an indirect free kick."
+    },
+    {
+      id: "r15",
+      law: "Law 14",
+      question: "Both the goalkeeper and kicker commit offences at a penalty kick and the kick is missed. What happens?",
+      choices: ["Retake", "Goal kick", "Indirect free kick to the defending team and caution the kicker", "Dropped ball"],
+      answer: 2,
+      explanation: "When both offend and the kick is missed or saved, the kicker's more serious offence is penalised with an indirect free kick and caution."
+    },
+    {
+      id: "r16",
+      law: "Law 13",
+      question: "An attacking indirect free kick inside the opponents' goal area is awarded. Where is it taken?",
+      choices: ["At the exact spot even on the goal line", "On the goal area line parallel to the goal line, nearest to where the offence occurred", "From the penalty mark", "From the corner arc"],
+      answer: 1,
+      explanation: "Attacking indirect free kicks inside the opponents' goal area are taken from the nearest point on the goal area line parallel to the goal line."
+    },
+    {
+      id: "r17",
+      law: "Law 13",
+      question: "A free kick is taken inside the kicker's own penalty area. Opponents are still inside because they had no time to leave, and they do not interfere. What should happen?",
+      choices: ["Play continues", "Always retake", "Indirect free kick to the opponents", "Penalty kick"],
+      answer: 0,
+      explanation: "If opponents had no time to leave and do not interfere, play can continue once the ball is in play."
+    },
+    {
+      id: "r18",
+      law: "Law 15",
+      question: "The thrower touches the ball again before another player touches it. What is the restart?",
+      choices: ["Indirect free kick", "Retake the throw-in", "Dropped ball", "Corner kick"],
+      answer: 0,
+      explanation: "If the thrower touches the ball a second time before another player, an indirect free kick is awarded unless a handball offence changes the restart."
+    },
+    {
+      id: "r19",
+      law: "Law 16",
+      question: "A goal kick goes directly into the kicker's own goal. What is awarded?",
+      choices: ["Goal", "Corner kick to the opponents", "Retake", "Dropped ball"],
+      answer: 1,
+      explanation: "If a goal kick goes directly into the kicker's own goal, a corner kick is awarded to the opponents."
+    },
+    {
+      id: "r20",
+      law: "Law 17",
+      question: "A corner kick goes directly into the kicker's own goal. What is awarded?",
+      choices: ["Goal", "Goal kick", "Corner kick to the opponents", "Retake"],
+      answer: 2,
+      explanation: "If a corner kick goes directly into the kicker's own goal, a corner kick is awarded to the opponents."
+    },
+    {
+      id: "r21",
+      law: "Law 8",
+      question: "At a dropped ball, every other player must be how far from the ball until it is in play?",
+      choices: ["2 m", "4 m", "5 m", "9.15 m"],
+      answer: 1,
+      explanation: "All other players from both teams must remain at least 4 metres from the ball until it is in play."
+    },
+    {
+      id: "r22",
+      law: "Law 8",
+      question: "A dropped ball enters a goal without touching at least two players. What should happen?",
+      choices: ["Goal", "Goal kick or corner kick, depending on which goal it enters", "Retake the dropped ball", "Penalty kick"],
+      answer: 1,
+      explanation: "A dropped ball must touch at least two players before a goal can be scored; otherwise the restart is a goal kick or corner kick."
+    },
+    {
+      id: "r23",
+      law: "Law 12",
+      question: "A defender commits a DOGSO offence in the penalty area while genuinely trying to play the ball, and a penalty is awarded. What is usually the disciplinary sanction?",
+      choices: ["No card", "Yellow card", "Red card", "Only a verbal warning"],
+      answer: 1,
+      explanation: "When a penalty is awarded for a DOGSO offence from an attempt to play or challenge for the ball, the sanction is usually reduced to a caution."
+    },
+    {
+      id: "r24",
+      law: "Law 12",
+      question: "A player commits two separate cautionable offences at almost the same time. What should the referee do?",
+      choices: ["Show only one yellow card", "Show two yellow cards and then a red card", "Show only a red card with no yellows", "Restart with a dropped ball"],
+      answer: 1,
+      explanation: "Two separate cautionable offences are punished with two cautions, which means the player is sent off."
+    }
+  ]
+};
+
+const setupScreen = document.querySelector("#setupScreen");
+const gameScreen = document.querySelector("#gameScreen");
+const resultsScreen = document.querySelector("#resultsScreen");
+const setupForm = document.querySelector("#setupForm");
+const playerNamesInput = document.querySelector("#playerNames");
+const turnsPerPlayerInput = document.querySelector("#turnsPerPlayer");
+const setupError = document.querySelector("#setupError");
+const roundLabel = document.querySelector("#roundLabel");
+const scoreboard = document.querySelector("#scoreboard");
+const turnHeader = document.querySelector("#turnHeader");
+const difficultyOptions = document.querySelector("#difficultyOptions");
+const difficultyView = document.querySelector("#difficultyView");
+const questionView = document.querySelector("#questionView");
+const questionDifficulty = document.querySelector("#questionDifficulty");
+const questionLaw = document.querySelector("#questionLaw");
+const questionText = document.querySelector("#questionText");
+const answerOptions = document.querySelector("#answerOptions");
+const feedbackBox = document.querySelector("#feedbackBox");
+const skipButton = document.querySelector("#skipButton");
+const nextButton = document.querySelector("#nextButton");
+const restartButton = document.querySelector("#restartButton");
+const playAgainButton = document.querySelector("#playAgainButton");
+const winnerTitle = document.querySelector("#winnerTitle");
+const winnerSummary = document.querySelector("#winnerSummary");
+const finalTable = document.querySelector("#finalTable");
+
+let state = createInitialState();
+
+function createInitialState() {
+  return {
+    players: [],
+    turnsPerPlayer: 5,
+    turnIndex: 0,
+    currentQuestion: null,
+    currentDifficulty: null,
+    answered: false,
+    usedQuestions: {
+      amateur: new Set(),
+      intermediate: new Set(),
+      pro: new Set(),
+      referee: new Set()
+    }
+  };
+}
+
+function parsePlayers(value) {
+  const names = value
+    .split(/\r?\n/)
+    .map((name) => name.trim())
+    .filter(Boolean);
+
+  const invalidName = names.find((name) => /\s/.test(name) || name.includes(","));
+
+  if (invalidName) {
+    return {
+      players: [],
+      error: "Put each player on a separate line. Names cannot contain spaces."
+    };
+  }
+
+  return {
+    players: names.map((name) => ({
+      name,
+      score: 0,
+      correct: 0,
+      wrong: 0,
+      skipped: 0,
+      turns: 0
+    })),
+    error: ""
+  };
+}
+
+function activePlayer() {
+  return state.players[state.turnIndex % state.players.length];
+}
+
+function totalTurns() {
+  return state.players.length * state.turnsPerPlayer;
+}
+
+function currentRound() {
+  return Math.floor(state.turnIndex / state.players.length) + 1;
+}
+
+function showScreen(screen) {
+  setupScreen.hidden = screen !== "setup";
+  gameScreen.hidden = screen !== "game";
+  resultsScreen.hidden = screen !== "results";
+}
+
+function renderScoreboard() {
+  scoreboard.innerHTML = "";
+  const active = activePlayer();
+
+  state.players.forEach((player) => {
+    const card = document.createElement("article");
+    card.className = `score-card${player === active ? " active" : ""}`;
+    card.innerHTML = `
+      <div class="score-name">
+        <span>${escapeHtml(player.name)}</span>
+        <span>${formatPoints(player.score)}</span>
+      </div>
+      <div class="score-meta">${player.correct} correct, ${player.wrong} wrong, ${player.skipped} skipped</div>
+    `;
+    scoreboard.appendChild(card);
+  });
+}
+
+function renderTurnHeader() {
+  const player = activePlayer();
+  roundLabel.textContent = `Round ${currentRound()} / ${state.turnsPerPlayer}`;
+  turnHeader.innerHTML = `
+    <p class="eyebrow">On the ball</p>
+    <h2>${escapeHtml(player.name)}</h2>
+    <p>${state.turnIndex + 1} of ${totalTurns()} total turns</p>
+  `;
+}
+
+function renderDifficultyOptions() {
+  difficultyOptions.innerHTML = "";
+
+  difficulties.forEach((difficulty) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "difficulty-card";
+    button.dataset.difficulty = difficulty.id;
+    button.innerHTML = `
+      <strong>${difficulty.label}</strong>
+      <span>${difficulty.description}</span>
+      <span class="point-badge">+${difficulty.points} ${difficulty.points === 1 ? "point" : "points"}</span>
+    `;
+    button.addEventListener("click", () => selectDifficulty(difficulty.id));
+    difficultyOptions.appendChild(button);
+  });
+}
+
+function selectDifficulty(difficultyId) {
+  const difficulty = difficulties.find((item) => item.id === difficultyId);
+  const question = pickQuestion(difficultyId);
+
+  state.currentDifficulty = difficulty;
+  state.currentQuestion = question;
+  state.answered = false;
+
+  difficultyView.hidden = true;
+  questionView.hidden = false;
+  feedbackBox.hidden = true;
+  nextButton.hidden = true;
+  skipButton.hidden = false;
+
+  questionDifficulty.textContent = `${difficulty.label} +${difficulty.points}`;
+  questionLaw.textContent = question.law;
+  questionText.textContent = question.question;
+  renderAnswerOptions(question);
+}
+
+function pickQuestion(difficultyId) {
+  const bank = questionBank[difficultyId];
+  const used = state.usedQuestions[difficultyId];
+
+  if (used.size >= bank.length) {
+    used.clear();
+  }
+
+  const available = bank.filter((question) => !used.has(question.id));
+  const question = available[Math.floor(Math.random() * available.length)];
+  used.add(question.id);
+  return question;
+}
+
+function renderAnswerOptions(question) {
+  answerOptions.innerHTML = "";
+
+  question.choices.forEach((choice, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "answer-button";
+    button.textContent = choice;
+    button.addEventListener("click", () => answerQuestion(index));
+    answerOptions.appendChild(button);
+  });
+}
+
+function answerQuestion(choiceIndex) {
+  if (state.answered) {
+    return;
+  }
+
+  const question = state.currentQuestion;
+  const player = activePlayer();
+  const isCorrect = choiceIndex === question.answer;
+
+  state.answered = true;
+  player.turns += 1;
+
+  if (isCorrect) {
+    player.score += state.currentDifficulty.points;
+    player.correct += 1;
+  } else {
+    player.wrong += 1;
+  }
+
+  Array.from(answerOptions.children).forEach((button, index) => {
+    button.disabled = true;
+    if (index === question.answer) {
+      button.classList.add("correct");
+    }
+    if (index === choiceIndex && !isCorrect) {
+      button.classList.add("wrong");
+    }
+  });
+
+  feedbackBox.hidden = false;
+  feedbackBox.innerHTML = `
+    <strong>${isCorrect ? "Correct" : "Not this time"}</strong>
+    ${escapeHtml(question.explanation)}
+  `;
+
+  skipButton.hidden = true;
+  nextButton.hidden = false;
+  renderScoreboard();
+}
+
+function skipQuestion() {
+  if (!state.currentQuestion || state.answered) {
+    return;
+  }
+
+  const player = activePlayer();
+  state.answered = true;
+  player.turns += 1;
+  player.skipped += 1;
+
+  Array.from(answerOptions.children).forEach((button, index) => {
+    button.disabled = true;
+    if (index === state.currentQuestion.answer) {
+      button.classList.add("correct");
+    }
+  });
+
+  feedbackBox.hidden = false;
+  feedbackBox.innerHTML = `
+    <strong>Skipped</strong>
+    ${escapeHtml(state.currentQuestion.explanation)}
+  `;
+  skipButton.hidden = true;
+  nextButton.hidden = false;
+  renderScoreboard();
+}
+
+function advanceTurn() {
+  state.turnIndex += 1;
+  state.currentQuestion = null;
+  state.currentDifficulty = null;
+  state.answered = false;
+
+  if (state.turnIndex >= totalTurns()) {
+    renderResults();
+    return;
+  }
+
+  difficultyView.hidden = false;
+  questionView.hidden = true;
+  renderTurnHeader();
+  renderScoreboard();
+}
+
+function renderGame() {
+  showScreen("game");
+  difficultyView.hidden = false;
+  questionView.hidden = true;
+  renderDifficultyOptions();
+  renderTurnHeader();
+  renderScoreboard();
+}
+
+function renderResults() {
+  const sorted = [...state.players].sort((a, b) => b.score - a.score || b.correct - a.correct);
+  const topScore = sorted[0].score;
+  const winners = sorted.filter((player) => player.score === topScore);
+
+  roundLabel.textContent = "Finished";
+  winnerTitle.textContent =
+    winners.length === 1 ? `${winners[0].name} wins` : "It is a draw";
+  winnerSummary.textContent =
+    winners.length === 1
+      ? `${winners[0].name} finished with ${formatPoints(topScore)}.`
+      : `${winners.map((player) => player.name).join(", ")} finished level on ${formatPoints(topScore)}.`;
+
+  finalTable.innerHTML = "";
+  sorted.forEach((player, index) => {
+    const row = document.createElement("div");
+    row.className = "final-row";
+    row.innerHTML = `
+      <span>#${index + 1}</span>
+      <span>${escapeHtml(player.name)}</span>
+      <span>${formatPoints(player.score)}</span>
+      <span>${player.correct}/${player.turns} correct</span>
+    `;
+    finalTable.appendChild(row);
+  });
+
+  showScreen("results");
+}
+
+function resetToSetup(keepNames = true) {
+  const names = keepNames ? state.players.map((player) => player.name).join("\n") : "";
+  const turns = state.turnsPerPlayer;
+  state = createInitialState();
+  state.turnsPerPlayer = turns;
+  playerNamesInput.value = names;
+  turnsPerPlayerInput.value = String(turns);
+  setupError.textContent = "";
+  roundLabel.textContent = "Setup";
+  showScreen("setup");
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function formatPoints(points) {
+  return `${points} ${points === 1 ? "point" : "points"}`;
+}
+
+setupForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const parsedPlayers = parsePlayers(playerNamesInput.value);
+  const players = parsedPlayers.players;
+  const turns = Math.max(1, Math.min(12, Number(turnsPerPlayerInput.value) || 5));
+
+  if (parsedPlayers.error) {
+    setupError.textContent = parsedPlayers.error;
+    return;
+  }
+
+  if (players.length < 1) {
+    setupError.textContent = "Add at least one player. Press Enter after each name.";
+    return;
+  }
+
+  state = createInitialState();
+  state.players = players;
+  state.turnsPerPlayer = turns;
+  setupError.textContent = "";
+  renderGame();
+});
+
+skipButton.addEventListener("click", skipQuestion);
+nextButton.addEventListener("click", advanceTurn);
+restartButton.addEventListener("click", () => resetToSetup(true));
+playAgainButton.addEventListener("click", () => resetToSetup(true));
+
+    </script>
+  </body>
+</html>
+
